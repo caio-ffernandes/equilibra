@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css-b/style2.css">
+</head>
+<body>
+    <form class="form-container" action="/registrardia" method="post">
+
+        <div>
+            <label for="txtnome">Nome</label>
+            <input type="text" name="txtnome" id="txtnome">
+
+            <select name="selexercicio" id="selexercicio">
+                <option value="">Selecione uma opção</option>
+                 <% for(let exercicio of exercicios){  %>
+                <option value="<%= exercicio.id %>"><%= exercicio.id %></option>
+                 <% } %>
+            </select>
+            
+        </div>
+
+<input type="submit" name="" id="">
+    </form>
+</body>
+</html>

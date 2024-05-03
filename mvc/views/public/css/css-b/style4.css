@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, white, #2A678C); /* Azul claro encima, azul escuro em baixo */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header div{
+    display: flex;
+    height: 40%;
+}
+header div h2{
+    display: flex;
+    font-size: 15px;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+#exercicios-do-dia {
+    display: flex;
+    justify-content: space-around;
+    
+    width: 90%;
+    padding: 20px;
+    flex-direction: column;
+}
+section {
+    text-align: center;
+    margin-top: 10px;
+    width: calc(90%);
+    background-color: rgba(255, 255, 255, 0.341);
+    align-items: center;
+    border-radius: 15px;
+}
+.conteudo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+img {
+    width: 100px; 
+    height: 100px; 
+}
+button {
+    background-color: transparent; 
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.341);
+    border-radius: 15px;
+}
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #25516885;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+.menu-lateral.active {
+    left: 0;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-lateral ul li {
+    padding: 10px;
+    border-bottom: 1px solid #680ab05f;
+}
+
+.menu-lateral ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+#menu-toggle{
+    font-size: 35px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#menu-toggle span{
+    font-size: 35px;
+    cursor: pointer;
+}

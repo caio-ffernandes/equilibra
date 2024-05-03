@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/css-b/style4.css">
+</head>
+
+<body>
+    <header>
+       
+        <div class="row"><h2>Olá <%= userEmail %>      
+            <p id="menu-toggle"><span class="material-symbols-outlined">
+                lists
+                </span></p></h2></div>
+        
+    </header>
+    <main>
+        <div id="exercicios-do-dia">
+      
+        </div>
+   
+    </main>
+    <div class="menu-lateral" id="menu-lateral">
+        <ul>
+            <li><a href="/dia">Dia<span class="material-symbols-outlined">calendar_month</span></a></li>
+            <li><a href="/exercicio">Exercicio<span class="material-symbols-outlined">fitness_center</span></a></li>
+            <li><a href="/usuario">Usuario <span class="material-symbols-outlined">account_circle</span></a></li>
+            <li><a href="/logout">Sair<span class="material-symbols-outlined">logout</span></a></li>
+        </ul>
+    </div>
+    <script>
+           document.addEventListener('DOMContentLoaded', function () {
+        let menuToggle = document.getElementById('menu-toggle');
+        let menuLateral = document.getElementById('menu-lateral');
+
+        menuToggle.addEventListener('click', function () {
+            menuLateral.classList.toggle('active');
+        });
+    });
+       let escrever = document.getElementById('exercicios-do-dia')
+       fetch("/dias")
+        .then(resposta => resposta.json())
+        .then(dados => {
+          console.log(dados[0].cardio_exercicio)
+           escrever.innerHTML=`
+           <div class="conteudo">
+            <section>
+            <h1>Cardio<h1/>
+            <img src="images/Sports-Running-Man-icon.png" alt="">
+            </section>
+            <a href='/timer/cardio'><button class="exercicio-btn">${dados[0].cardio_exercicio}</button></a>
+          </div>
+          <div class="conteudo">
+            <section>
+                <h1>Musculação<h1/>
+            <img src="images/94104.png" alt="">
+            </section>
+            <a href='/timer/musculo'><button class="exercicio-btn">${dados[0].musculo_exercicio}</button></a>
+          </div>
+          <div class="conteudo">
+            <section>
+            <h1>Aerobico<h1/>
+            <img src="images/2303976-200.png" alt="">
+            </section>
+            <a href='/timer/aerobico'><button class="exercicio-btn">${dados[0].aerobico_exercicio}</button></a>
+          </div>
+           `
+        });
+
+      
+          
+    </script>
+
+</body>
+
+</html>

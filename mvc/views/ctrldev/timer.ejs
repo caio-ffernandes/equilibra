@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, white, #2A678C); 
+            padding-top: 50px;
+            height: 100vh;
+        }
+        
+        h1 {
+            color: #000;
+        }
+
+        #timer {
+            font-size: 48px;
+            color: #000;
+        }
+        .cima{
+            margin-top: 45px;
+        }
+        .cima button{
+            background-color: #6A73A6;
+    color: #fff;
+     border-radius: 15px;
+      border: none;
+    cursor: pointer;
+    outline: none;
+    width: calc(30% );
+    height: 30px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div>
+    <h1 id="exercicio">Timer para <%= exercicio %></h1>
+    <div id="timer">5:00</div>
+</div>
+<div class="cima">
+<a href="/home"> <button>Voltar</button></a>
+</div>
+    <script>
+        let exercicio=document.getElementById("exercicio")
+         fetch("/dias")
+        .then(resposta => resposta.json())
+        .then(dados => {
+          exercicio.innerHTML=`
+          Timer para ${dados[0].<%= exercicio %>_exercicio}
+          `
+          
+        });
+
+      
+        
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+    
+        window.onload = function () {
+            var fiveMinutes = 60 * 5,
+                display = document.querySelector('#timer');
+            startTimer(fiveMinutes, display);
+        };
+    </script>
+</body>
+
+</html>

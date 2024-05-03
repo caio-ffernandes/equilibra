@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, white, #2A678C); /* Azul claro encima, azul escuro em baixo */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+   
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 40px; /* Ajuste o tamanho da imagem conforme necessário */
+    margin-left: 20px; /* Espaçamento à esquerda */
+}
+
+.container {
+    text-align: center;
+}
+.container div{
+    margin-top: 85px;
+}
+.welcome-message {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #5A378C; /* Cor do botão */
+}
+
+.sub-message {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #5A378C; /* Cor do texto abaixo do botão */
+}
+
+.login-button {
+    display: inline-block;
+    padding: 15px 40px; /* Ajuste o padding para tornar o botão mais longo */
+    background-color: #5A378C;
+    color: #fff;
+    width: calc(50%);
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px; /* Espaçamento abaixo do botão */
+}
+
+.sub-message-small {
+    font-size: 16px;
+    color: #fff; /* Cor do texto abaixo do botão */
+}
